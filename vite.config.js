@@ -15,7 +15,11 @@ export default defineConfig(({ command }) => {
       sourcemap: true,
       rollupOptions: {
         external: ['izitoast'],
-        input: glob.sync('./src/*.html'),
+        input: {
+          main: resolve(__dirname, 'src/index.html'),
+      timer: resolve(__dirname, 'src/01-timer.html'),
+      snackbar: resolve(__dirname, 'src/02-snackbar.html'),
+        },
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
