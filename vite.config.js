@@ -3,6 +3,7 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import { resolve } from 'path';
 
 export default defineConfig(({ command }) => {
   return {
@@ -13,6 +14,7 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
+        external: ['izitoast'],
         input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
@@ -44,5 +46,8 @@ export default defineConfig(({ command }) => {
         sort: 'mobile-first',
       }),
     ],
+    server: {
+      open: true,
+    },
   };
 });
