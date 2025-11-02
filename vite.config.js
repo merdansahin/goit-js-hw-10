@@ -15,7 +15,6 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
-        external: ['izitoast'],
         input: {
           main: resolve(__dirname, 'src/index.html'),
       timer: resolve(__dirname, 'src/01-timer.html'),
